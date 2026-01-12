@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IGNITD | Text to Connect</title>
+  <meta name="robots" content="noindex" />
+  <style>
+    :root{
+      --gold:#c59759;
+      --bg1:#1a1a1a;
+      --bg2:#0f0f0f;
+      --card:#18181b;
+      --border:#27272a;
+      --text:#f4f4f5;
+      --muted:#a1a1aa;
+      --muted2:#71717a;
+    }
+
+    * { box-sizing: border-box; }
+
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
+      position: relative;
+      overflow-x:hidden;
+    }
+
+    /* Subtle grid texture */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.14) 2px, rgba(0,0,0,.14) 4px);
+      opacity:.35;
+      pointer-events:none;
+    }
+
+    .wrap{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      position:relative;
+    }
+
+    /* Hex outline decorative element */
+    .hex{
+      position:absolute;
+      top:10%;
+      right:10%;
+      width:220px;
+      height:220px;
+      opacity:.07;
+      pointer-events:none;
+    }
+
+    .card{
+      width:min(720px, 100%);
+      background: rgba(24,24,27,.96);
+      border:1px solid var(--border);
+      border-radius: 22px;
+      padding: 42px 36px;
+      text-align:center;
+      box-shadow: 0 0 30px rgba(197,151,89,.15);
+      position:relative;
+      z-index:2;
+      backdrop-filter: blur(6px);
+    }
+
+    .brand{
+      font-weight: 800;
+      font-size: clamp(44px, 6vw, 64px);
+      letter-spacing: .08em;
+      color: var(--gold);
+      margin-bottom: 18px;
+      line-height:1;
+    }
+
+    h1{
+      margin: 0 0 12px;
+      font-size: clamp(32px, 4.2vw, 52px);
+      letter-spacing: -0.02em;
+      font-weight: 800;
+    }
+
+    .sub{
+      margin: 0 auto 26px;
+      max-width: 48ch;
+      font-size: clamp(16px, 2vw, 20px);
+      color: var(--muted);
+      line-height:1.5;
+      font-weight: 300;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 14px 22px;
+      border-radius: 12px;
+      background: var(--gold);
+      color:#111827;
+      font-weight: 800;
+      font-size: 18px;
+      text-decoration:none;
+      box-shadow: 0 10px 25px rgba(0,0,0,.35);
+      transform: translateZ(0);
+      transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn:active{
+      transform: scale(.98);
+      box-shadow: 0 8px 18px rgba(0,0,0,.28);
+      filter: brightness(.98);
+    }
+
+    .btn svg{ width:20px; height:20px; }
+
+    .fine{
+      margin-top: 18px;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted2);
+      font-weight: 700;
+    }
+
+    .note{
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--muted2);
+      line-height:1.4;
+    }
+
+    .note strong{ color: var(--text); font-weight:700; }
+
+    .fallback{
+      margin-top: 10px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .fallback a{
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .divider{
+      height:1px;
+      background: rgba(255,255,255,.06);
+      margin: 18px auto 0;
+      max-width: 520px;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <!-- Hex pattern -->
+    <svg class="hex" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <polygon points="100,10 175,55 175,145 100,190 25,145 25,55" fill="none" stroke="#c59759" stroke-width="2" />
+      <polygon points="100,30 155,62.5 155,137.5 100,170 45,137.5 45,62.5" fill="none" stroke="#c59759" stroke-width="1.5" opacity="0.6" />
+      <polygon points="100,50 135,70 135,130 100,150 65,130 65,70" fill="none" stroke="#c59759" stroke-width="1" opacity="0.35" />
+    </svg>
+
+    <section class="card">
+      <div class="brand">[IGNITD]</div>
+
+      <h1>Your Fire. Our Fuel.</h1>
+      <p class="sub">Ready to Ignite your potential? Let’s connect.</p>
+
+      <a id="smsLink" class="btn" href="sms:7028858008" rel="nofollow">
+        <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+        </svg>
+        <span>Text to Connect</span>
+      </a>
+
+      <div class="fine">Immediate Response • Professional Consultation</div>
+
+      <div class="divider"></div>
+
+      <p class="note">
+        If the text screen doesn’t open, you’re probably in an in app browser.
+        Tap the menu (•••) and choose <strong>Open in Browser</strong>.
+      </p>
+
+      <p class="fallback">
+        Or text us manually: <a href="tel:7028858008">(702) 885 8008</a>
+      </p>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const phone = "7028858008";
+      const message = "Learn more about IGNITD!";
+      const body = encodeURIComponent(message);
+
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+      // iOS commonly prefers &body=, Android commonly prefers ?body=
+      const smsHref = isIOS
+        ? `sms:${phone}&body=${body}`
+        : `sms:${phone}?body=${body}`;
+
+      const link = document.getElementById("smsLink");
+      link.setAttribute("href", smsHref);
+
+      // Extra reliability: ensure click is treated as a direct user navigation
+      link.addEventListener("click", function (e) {
+        // Let the browser try the native scheme first
+        // Some environments block it; in those cases nothing will happen.
+        // We do not preventDefault here on purpose.
+      });
+    })();
+  </script>
+</body>
+</html>
